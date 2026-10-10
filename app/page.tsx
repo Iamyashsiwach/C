@@ -8,7 +8,7 @@ import Waitlist from "@/components/Waitlist";
 
 const steps = [
   { n: "01", t: "Mount your phone", d: "Any phone on the dash. The front camera watches your eyes, and nothing leaves the device." },
-  { n: "02", t: "Drive like normal", d: "Sarathi tracks blink length, head nod and yawns, and learns what tired looks like on you." },
+  { n: "02", t: "Drive like normal", d: "Saarthi tracks blink length, head nod and yawns, and learns what tired looks like on you." },
   { n: "03", t: "Get nudged early", d: "A voice check-in first, then a louder alert, then an emergency alarm if you don't respond." },
 ];
 
@@ -26,7 +26,7 @@ export default function Page() {
             that never blinks.
           </h1>
           <p className="lede">
-            Sarathi watches your face for the first signs of sleep, finds the next dhaba for a tea break,
+            Saarthi watches your face for the first signs of sleep, finds the next dhaba for a tea break,
             and talks with you when the road gets boring.
           </p>
           <div className="cta-row">
@@ -41,7 +41,7 @@ export default function Page() {
             <p className="eyebrow">01 · Wake-up guard</p>
             <h2>It sees tired before you feel it.</h2>
             <p className="sub">
-              Drag the eyelid, or press and hold the button to close the eye. Sarathi measures how long it stays
+              Drag the eyelid, or press and hold the button to close the eye. Saarthi measures how long it stays
               shut and escalates. The road behind you turns red when it reaches an emergency.
             </p>
           </Reveal>
@@ -53,7 +53,7 @@ export default function Page() {
             <p className="eyebrow">02 · Next-stop advice</p>
             <h2>The right break, at the right dhaba.</h2>
             <p className="sub">
-              Sarathi combines hours since your last break, the time of night and the stops ahead. Drag the truck
+              Saarthi combines hours since your last break, the time of night and the stops ahead. Drag the truck
               along the route.
             </p>
           </Reveal>
@@ -65,7 +65,7 @@ export default function Page() {
             <p className="eyebrow">03 · Talk to stay sharp</p>
             <h2>Bored? Just say so.</h2>
             <p className="sub">
-              Hands-free conversation, stories, quizzes and music. Use Sarathi&apos;s own voice agent, or connect the
+              Hands-free conversation, stories, quizzes and music. Use Saarthi&apos;s own voice agent, or connect the
               assistant you already trust.
             </p>
           </Reveal>
@@ -93,7 +93,7 @@ export default function Page() {
         <section className="section" id="waitlist">
           <Reveal>
             <p className="eyebrow">Early access</p>
-            <h2>Be first on the road with Sarathi.</h2>
+            <h2>Be first on the road with Saarthi.</h2>
             <p className="sub">Drivers and fleet owners welcome. We&apos;ll write when the beta opens.</p>
           </Reveal>
           <Waitlist />
@@ -102,10 +102,10 @@ export default function Page() {
 
       <footer className="footer">
         <p>
-          <strong>Sarathi</strong> is a driver-assistance aid, not a replacement for rest. If you feel sleepy,
+          <strong>Saarthi</strong> is a driver-assistance aid, not a replacement for rest. If you feel sleepy,
           pull over safely. No app can make it safe to keep driving while exhausted.
         </p>
-        <p className="fine">© 2026 Sarathi. Demos on this page are simulations.</p>
+        <p className="fine">© 2026 Saarthi. Demos on this page are simulations.</p>
       </footer>
     </>
   );

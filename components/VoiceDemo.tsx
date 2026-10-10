@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type Msg = { from: "you" | "ai"; text: string };
 
-const AGENTS = ["Sarathi Voice", "ChatGPT", "Alexa", "Your own agent"];
+const AGENTS = ["Saarthi Voice", "ChatGPT", "Alexa", "Your own agent"];
 
 const SCRIPT: Record<string, string> = {
   "I'm getting bored": "Let's fix that. Quick game: I'll name a highway song from the 90s, you finish the line. Ready? “Tum hi ho…”",

@@ -31,7 +31,7 @@ export default function DrowsinessDemo() {
   const setLevel = useCallback((l: Level) => {
     if (level.current === l) return;
     level.current = l;
-    window.dispatchEvent(new CustomEvent("sarathi:alert", { detail: l }));
+    window.dispatchEvent(new CustomEvent("saarthi:alert", { detail: l }));
   }, []);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function DrowsinessDemo() {
     raf = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(raf);
-      window.dispatchEvent(new CustomEvent("sarathi:alert", { detail: 0 }));
+      window.dispatchEvent(new CustomEvent("saarthi:alert", { detail: 0 }));
       audio.current?.osc.stop();
       audio.current?.ctx.close();
       audio.current = null;

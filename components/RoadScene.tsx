@@ -141,7 +141,7 @@ export default function RoadScene() {
     const onAlert = (e: Event) => {
       alert = (e as CustomEvent<number>).detail ?? 0;
     };
-    window.addEventListener("sarathi:alert", onAlert);
+    window.addEventListener("saarthi:alert", onAlert);
 
     const onResize = () => {
       renderer.setSize(host.clientWidth, host.clientHeight);
@@ -239,7 +239,7 @@ export default function RoadScene() {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onPointer);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("sarathi:alert", onAlert);
+      window.removeEventListener("saarthi:alert", onAlert);
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVis);
       scene.traverse((o) => {

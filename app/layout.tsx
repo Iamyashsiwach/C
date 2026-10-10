@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sarathi — the AI co-driver that never blinks",
+  title: "Saarthi — the AI co-driver that never blinks",
   description:
-    "Sarathi watches for drowsiness, plans your next tea break, and keeps you company on long hauls. Built for truck drivers.",
+    "Saarthi watches for drowsiness, plans your next tea break, and keeps you company on long hauls. Built for truck drivers.",
 };
 
 export const viewport: Viewport = {

@@ -2,7 +2,7 @@ export default function Nav() {
   return (
     <header className="nav">
       <a href="#top" className="brand">
-        <span className="dot" /> Sarathi
+        <span className="dot" /> Saarthi
       </a>
       <nav>
         <a href="#drowsy">Wake guard</a>
