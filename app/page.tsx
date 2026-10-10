@@ -5,6 +5,8 @@ import DrowsinessDemo from "@/components/DrowsinessDemo";
 import StopAdvisor from "@/components/StopAdvisor";
 import VoiceDemo from "@/components/VoiceDemo";
 import Waitlist from "@/components/Waitlist";
+import PushDemo from "@/components/PushDemo";
+import Ollie from "@/components/Ollie";
 
 const steps = [
   { n: "01", t: "Mount your phone", d: "Any phone on the dash. The front camera watches your eyes, and nothing leaves the device." },
@@ -17,6 +19,7 @@ export default function Page() {
     <>
       <RoadScene />
       <Nav />
+      <Ollie />
       <main>
         <section className="hero" id="top">
           <p className="eyebrow">Launching soon · built for the long haul</p>
@@ -26,8 +29,8 @@ export default function Page() {
             that never blinks.
           </h1>
           <p className="lede">
-            Saarthi watches your face for the first signs of sleep, finds the next dhaba for a tea break,
-            and talks with you when the road gets boring.
+            Meet Ollie, your owl co-driver. He watches your face for the first signs of sleep, finds the next
+            dhaba for a tea break, and talks with you when the road gets boring.
           </p>
           <div className="cta-row">
             <a className="btn primary" href="#waitlist">Join the waitlist</a>
@@ -70,6 +73,18 @@ export default function Page() {
             </p>
           </Reveal>
           <VoiceDemo />
+        </section>
+
+        <section className="section" id="push">
+          <Reveal>
+            <p className="eyebrow">04 · Ollie in your pocket</p>
+            <h2>Nudges that arrive before the yawn.</h2>
+            <p className="sub">
+              Ollie is Saarthi&apos;s owl co-driver. In the app he talks to you, and on your lock screen he sends
+              break reminders, night-stretch warnings and a little praise when you rest on time.
+            </p>
+          </Reveal>
+          <PushDemo />
         </section>
 
         <section className="section" id="how">

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type Msg = { from: "you" | "ai"; text: string };
 
-const AGENTS = ["Saarthi Voice", "ChatGPT", "Alexa", "Your own agent"];
+const AGENTS = ["Ollie", "ChatGPT", "Alexa", "Your own agent"];
 
 const SCRIPT: Record<string, string> = {
   "I'm getting bored": "Let's fix that. Quick game: I'll name a highway song from the 90s, you finish the line. Ready? “Tum hi ho…”",
@@ -16,7 +16,7 @@ const SCRIPT: Record<string, string> = {
 export default function VoiceDemo() {
   const [agent, setAgent] = useState(AGENTS[0]);
   const [msgs, setMsgs] = useState<Msg[]>([
-    { from: "ai", text: "Hi, I'm here. Ask me anything, or just say you're bored." },
+    { from: "ai", text: "Hoo-hoo! I'm Ollie. Ask me anything, or just say you're bored." },
   ]);
   const [typing, setTyping] = useState(false);
   const timer = useRef<number>(0);
@@ -51,7 +51,15 @@ export default function VoiceDemo() {
       <div className="log" ref={log} aria-live="polite">
         {msgs.map((m, i) => (
           <p key={i} className={`bubble ${m.from}`}>
-            {m.from === "ai" && <small>{agent}</small>}
+            {m.from === "ai" && (
+              <small>
+                {agent === "Ollie" && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="mini" src="/ollie.png" alt="" />
+                )}
+                {agent === "Ollie" ? "Ollie · Saarthi Voice" : agent}
+              </small>
+            )}
             {m.text}
           </p>
         ))}

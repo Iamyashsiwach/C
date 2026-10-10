@@ -214,3 +214,71 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 28px; cu
   .nav { padding-left: 14px; }
   .btn.small { white-space: nowrap; }
 }
+
+/* ---------- Ollie mascot ---------- */
+:root { --teal: #3fb6a0; }
+.ollie { position: fixed; right: max(12px, 2vw); bottom: 8px; z-index: 8; width: clamp(110px, 18vw, 230px); transition: width 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); pointer-events: none; }
+.ollie.compact { width: clamp(78px, 9vw, 120px); }
+.ollie-persp { perspective: 700px; }
+.ollie-body { pointer-events: auto; cursor: grab; touch-action: none; will-change: transform; -webkit-user-select: none; user-select: none; }
+.ollie-body.grabbed { cursor: grabbing; }
+.ollie-bob { animation: ollie-bob 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+.ollie-bob img { display: block; width: 100%; height: auto; filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 28px rgba(63, 182, 160, 0.22)); }
+@keyframes ollie-bob { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-7px) rotate(1.5deg); } }
+.ollie-body:active .ollie-bob { animation-play-state: paused; }
+.ollie.worried .ollie-bob { animation: ollie-shake 0.5s ease-in-out infinite; }
+.ollie.panic .ollie-bob { animation: ollie-shake 0.18s linear infinite; }
+.ollie.panic .ollie-bob img { filter: drop-shadow(0 0 30px rgba(255, 59, 48, 0.8)) drop-shadow(0 14px 22px rgba(0, 0, 0, 0.55)); }
+@keyframes ollie-shake { 25% { transform: translateX(-4px) rotate(-3deg); } 75% { transform: translateX(4px) rotate(3deg); } }
+
+.ollie-bubble {
+  position: absolute; right: 8%; bottom: calc(100% - 6px); width: max-content; max-width: min(300px, 78vw);
+  padding: 12px 16px; border-radius: 20px 20px 6px 20px; font-size: 0.92rem; line-height: 1.4;
+  background: rgba(240, 250, 247, 0.96); color: #0d2a26; font-weight: 500;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6); pointer-events: none;
+  animation: bubble-in 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.25); transform-origin: 90% 100%;
+}
+.ollie-bubble small { display: block; color: #0e7c6b; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+.ollie.panic .ollie-bubble { background: var(--danger); color: #fff; }
+.ollie.panic .ollie-bubble small { color: #ffd9d6; }
+@keyframes bubble-in { from { opacity: 0; transform: scale(0.7) translateY(10px); } }
+
+.mini { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: #1b2a2a; vertical-align: -4px; margin-right: 6px; }
+
+/* ---------- Push demo ---------- */
+.push-wrap { display: grid; gap: 36px; align-items: center; }
+@media (min-width: 860px) { .push-wrap { grid-template-columns: 340px 1fr; gap: 56px; } }
+.phone {
+  position: relative; width: min(340px, 100%); min-height: 560px; margin: 0 auto; padding: 56px 14px 24px; border-radius: 44px; overflow: hidden;
+  background: linear-gradient(170deg, #12332f 0%, #0b1218 55%, #07080c 100%);
+  border: 2px solid rgba(255, 255, 255, 0.18); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8), inset 0 0 0 6px #0a0c11;
+}
+.notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 96px; height: 26px; border-radius: 99px; background: #000; }
+.lock-time { text-align: center; font-size: 4rem; font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; margin-top: 18px; }
+.lock-date { text-align: center; color: var(--muted); margin: 4px 0 26px; }
+.notes { display: grid; gap: 8px; }
+.empty { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+.note {
+  position: relative; display: flex; gap: 10px; align-items: flex-start; padding: 12px 34px 12px 12px; border-radius: 20px;
+  background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14); cursor: grab; touch-action: pan-y; animation: note-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  -webkit-user-select: none; user-select: none;
+}
+.note.alert { border-color: rgba(255, 179, 71, 0.7); }
+.note.ok { border-color: rgba(52, 211, 153, 0.6); }
+@keyframes note-in { from { opacity: 0; transform: translateY(-24px) scale(0.94); } }
+.note .avatar { flex: none; width: 38px; height: 38px; border-radius: 10px; overflow: hidden; background: #1b3a35; }
+.note .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; transform: scale(1.5) translateY(6%); pointer-events: none; }
+.note .txt { display: grid; gap: 2px; font-size: 0.82rem; line-height: 1.35; }
+.note .txt strong { font-size: 0.86rem; }
+.note .txt span { color: #d3d6e0; }
+.note .x { position: absolute; top: 6px; right: 8px; width: 26px; height: 26px; border-radius: 50%; border: 0; background: transparent; color: var(--muted); font-size: 1.2rem; cursor: pointer; }
+.note .x:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 640px) {
+  .ollie-bubble { right: 0; max-width: 70vw; font-size: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ollie-bob, .ollie.worried .ollie-bob, .ollie.panic .ollie-bob, .ollie-bubble, .note { animation: none; }
+}

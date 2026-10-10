@@ -49,12 +49,14 @@ export default function DrowsinessDemo() {
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
 
-      // Critically damped spring toward target openness: starts from the live value, so it is always interruptible.
-      const w = 2 * Math.PI / 0.28;
-      const x = pos.current - target.current;
-      const acc = -w * w * x - 2 * w * vel.current;
-      vel.current += acc * dt;
-      pos.current = Math.min(1, Math.max(0, pos.current + vel.current * dt));
+      // Critically damped spring, solved analytically so it stays stable at any frame rate.
+      // It starts from the live value and velocity, so it is always interruptible.
+      const w = (2 * Math.PI) / 0.28;
+      const x0 = pos.current - target.current;
+      const c = vel.current + w * x0;
+      const e = Math.exp(-w * dt);
+      pos.current = Math.min(1, Math.max(0, target.current + (x0 + c * dt) * e));
+      vel.current = (vel.current - w * c * dt) * e;
 
       const ear = EAR_CLOSED + (EAR_OPEN - EAR_CLOSED) * pos.current;
       if (ear < EAR_THRESHOLD) closed.current += dt * 1000;
